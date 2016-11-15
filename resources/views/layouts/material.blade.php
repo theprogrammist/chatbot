@@ -194,9 +194,9 @@
         </footer>
     </div>
 </div>
-<a href="http://leandev.ru" target="_blank"
+<!-- a href="http://leandev.ru" target="_blank"
    id="view-source"
-   class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Скачать приложение</a>
+   class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Скачать приложение</a-->
 <script src="{{url('/')}}/$$hosted_libs_prefix$$/$$version$$/material.min.js"></script>
 </body>
 </html>
