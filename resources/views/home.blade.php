@@ -1,17 +1,6 @@
-@extends('layouts.app')
-
+@extends('layouts.material')
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    You are logged in!
-                </div>
-            </div>
-        </div>
+    <div class="android-be-together-section mdl-typography--text-center">
+        <div class="logo-font android-slogan">Здравствуйте, {{ Auth::user()->name }}</div>
     </div>
-</div>
 @endsection

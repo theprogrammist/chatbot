@@ -50,6 +50,20 @@
             <!-- Navigation -->
             <div class="android-navigation-container">
                 <nav class="android-navigation mdl-navigation">
+                    @if (Auth::guest())
+                    <a class="mdl-navigation__link mdl-typography--text-uppercase" href="{{ url('/login') }}">Вход</a>
+                    <a class="mdl-navigation__link mdl-typography--text-uppercase" href="{{ url('/register') }}">Регистрация</a>
+                    @else
+                        <a class="mdl-navigation__link mdl-typography--text-uppercase" href="{{ url('/logout') }}"
+                           onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                            Выход
+                        </a>
+
+                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    @endif
                     <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Оборудование</a>
                     <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Решения</a>
                     <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Эксперты</a>
@@ -64,8 +78,17 @@
                 <i class="material-icons">more_vert</i>
             </button>
             <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
-                <li class="mdl-menu__item">Login</li>
-                <li class="mdl-menu__item">Log Out</li>
+                <li class="mdl-menu__item" onclick="window.location.href = '{{ url('/login') }}';">Login</li>
+                <li class="mdl-menu__item" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+
+                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+
+                </li>
                 <li class="mdl-menu__item">Настройки</li>
             </ul>
         </div>
