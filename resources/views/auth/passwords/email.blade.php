@@ -3,10 +3,11 @@
     <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
         {{ csrf_field() }}
 
-        <input type="hidden" name="token" value="{{ $token }}">
-
         <main class="mdl-layout__content">
             <div class="mdl-card mdl-shadow--6dp">
+                @if (session('status'))
+                    <mark><div class="mdl-card__supporting-text">{{ session('status') }}</div></mark>
+                @endif
                 <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
                     <h2 class="mdl-card__title-text">Запросить сброс пароля</h2>
                 </div>
