@@ -6,6 +6,19 @@
 
         <main class="mdl-layout__content">
             <div class="mdl-card mdl-shadow--6dp">
+                @if ($message = Session::get('error'))
+                <mark>
+                    <div class="mdl-card__supporting-text">
+                    @if(is_array($message))
+                        @foreach ($message as $m)
+                            {{ $m }}
+                        @endforeach
+                    @else
+                        {{ $message }}
+                    @endif
+                    </div>
+                </mark>
+                @endif
                 <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
                     <h2 class="mdl-card__title-text">Вход</h2>
                 </div>

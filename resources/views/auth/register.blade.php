@@ -15,6 +15,11 @@
                         <label class="mdl-textfield__label" for="name">Имя</label>
                         <span class="mdl-textfield__error">@if ($errors->has('name')){{ $errors->first('name') }} @endif</span>
                     </div>
+                    <div class="mdl-textfield mdl-js-textfield {{ $errors->has('lastname') ? ' is-invalid' : '' }}">
+                        <input class="mdl-textfield__input" type="text" id="lastname" name="lastname"  value="{{ old('lastname') }}" />
+                        <label class="mdl-textfield__label" for="lastname">Фамилия</label>
+                        <span class="mdl-textfield__error">@if ($errors->has('lastname')){{ $errors->first('lastname') }} @endif</span>
+                    </div>
                     <div class="mdl-textfield mdl-js-textfield {{ $errors->has('email') ? ' is-invalid' : '' }}">
                         <input class="mdl-textfield__input" type="text" id="email" name="email"  value="{{ old('email') }}" />
                         <label class="mdl-textfield__label" for="email">E-Mail адрес</label>
