@@ -14,11 +14,6 @@
                     <h2 class="mdl-card__title-text">Сменить пароль</h2>
                 </div>
                 <div class="mdl-card__supporting-text">
-                    <div class="mdl-textfield mdl-js-textfield {{ $errors->has('email') ? ' is-invalid' : '' }}">
-                        <input class="mdl-textfield__input" type="text" id="email" name="email"  value="{{ old('email') }}" />
-                        <label class="mdl-textfield__label" for="email">E-Mail адрес</label>
-                        <span class="mdl-textfield__error">@if ($errors->has('email')){{ $errors->first('email') }} @endif</span>
-                    </div>
                     <div class="mdl-textfield mdl-js-textfield {{ $errors->has('password') ? ' is-invalid' : '' }}">
                         <input class="mdl-textfield__input" type="password" id="password" name="password" />
                         <label class="mdl-textfield__label" for="password">Пароль</label>
