@@ -42,7 +42,7 @@ class ResetPasswordController extends Controller
 
     public function reset(Request $request)
     {
-        //$tokenRecord = DB::table('password_resets')->where('token',$request->token)->first();
+        $tokenRecord = DB::table('password_resets')->where('token',$request->token)->first();
         //var_dump($request->email = $tokenRecord->email);
         $this->validate($request, $this->rules(), $this->validationErrorMessages());
 
@@ -50,7 +50,7 @@ class ResetPasswordController extends Controller
         // will update the password on an actual user model and persist it to the
         // database. Otherwise we will parse the error and return the response.
         $response = $this->broker()->reset(
-            $this->credentials($request/*, $tokenRecord->email*/), function ($user, $password) {
+            $this->credentials($request, $tokenRecord->email), function ($user, $password) {
             $this->resetPassword($user, $password);
         }
         );
@@ -71,11 +71,11 @@ class ResetPasswordController extends Controller
         ];
     }
 
-    protected function credentials(Request $request/*, $email*/)
+    protected function credentials(Request $request, $email)
     {
         return $request->only(
         /*'email',*/ 'password', 'password_confirmation', 'token'
-        );
+        ) + ['email' => $email];
     }
 
 }
